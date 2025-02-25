@@ -1,9 +1,6 @@
 # プロンプトをカスタマイズするために使われる PS1 という変数を設定しています
 export PS1='%F{33}%n@%m:%c 🐈 %#%f '
 
-alias zsh='code ~/.zshrc'
-alias l='ls'
-alias la='ls -a'
 alias h='history 100'
 alias gg='git grep'
 alias gs='git status'
@@ -13,28 +10,23 @@ alias gl='git log'
 alias ga='git add'
 alias gA='git add -A'
 alias gc='git commit'
-alias gr='git rebase'
+alias gre='git rebase'
 alias gp='git push'
 alias gb='git branch'
 alias gch='git checkout'
 alias hg='history 100 | grep'
 alias chrome='open -a "Google Chrome"'
 alias op='open -a'
-alias v='vim .'
 
 alias smcb='cd /Users/mumumu/src/github.com/ostance/smcb'
-alias smcbinit="docker-compose down -v --remove-orphans && docker-compose run --rm app bash -c 'bundle config unset without && bundle config set --local with development && bundle install' && docker-compose up -d && docker-compose exec app bin/setup"
 alias dce='docker-compose exec app'
 alias dcebe='docker-compose exec app bundle exec'
 alias dc='docker-compose'
 alias dcd='docker-compose down'
 alias dcu='docker-compose up'
 alias dp='docker ps'
-alias dlls='ls /Users/mumumu/Downloads/'
 
-alias now='cd /Users/mumumu/src/github.com/okki-0417/smcb-study'
 
-# 新しいディレクトリを作成してそのディレクトリに移動します
 function mkcd() {
   mkdir -p "$1"
   cd "$1"
@@ -77,8 +69,6 @@ eval "$(nodenv init - zsh)"
 eval "$(rbenv init - zsh)"
 
 export PATH=$PATH:/Users/mumumu/sl
-
-echo $PATH
 
 test -e /Users/mumumu/.iterm2_shell_integration.zsh && source /Users/mumumu/.iterm2_shell_integration.zsh || true
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
