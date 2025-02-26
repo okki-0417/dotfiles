@@ -161,11 +161,6 @@
     "when": "inlineSuggestionVisible && !editorTabMovesFocus"
   },
   {
-    "key": "tab",
-    "command": "tab",
-    "when": "editorTextFocus && !inlineSuggestionVisible && !editorTabMovesFocus"
-  },
-  {
     "key": "ctrl+enter",
     "command": "editor.action.revealDefinition",
     "when": "editorHasDefinitionProvider && editorTextFocus"
@@ -1183,11 +1178,6 @@
     "key": "tab",
     "command": "-insertNextSuggestion",
     "when": "hasOtherSuggestions && textInputFocus && !inSnippetMode && !suggestWidgetVisible && config.editor.tabCompletion == 'on'"
-  },
-  {
-    "key": "tab",
-    "command": "-tab",
-    "when": "editorTextFocus && !editorReadonly && !editorTabMovesFocus"
   },
   {
     "key": "space",
