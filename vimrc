@@ -67,9 +67,6 @@ call dein#end()
 
 syntax on
 
-set termguicolors
-let g:neon_style = "dark"  " より暗めのバージョン
-colorscheme neon
 
 " 補完ウィンドウの操作
 inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
