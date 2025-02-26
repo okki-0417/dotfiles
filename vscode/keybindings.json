@@ -1,4 +1,125 @@
 [
+  //追加系
+  {
+    "key": "ctrl+h",
+    "command": "cursorLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+l",
+    "command": "cursorRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "cursorUp",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "cursorDown",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+cmd+j",
+    "command": "cursorBottom",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+cmd+k",
+    "command": "cursorTop",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+h",
+    "command": "cursorLeftSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+l",
+    "command": "cursorRightSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+k",
+    "command": "cursorUpSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+cmd+j",
+    "command": "cursorBottomSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+/",
+    "command": "editor.action.commentLine",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+4",
+    "command": "cursorHome",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+/",
+    "command": "notebook.commentSelectedCells",
+    "when": "notebookEditable && notebookEditorFocused && !inputFocus"
+  },
+  {
+    "key": "ctrl+]",
+    "command": "editor.action.indentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+[",
+    "command": "editor.action.outdentLines",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "list.collapse",
+    "when": "listFocus && treeElementCanCollapse && !inputFocus && !treestickyScrollFocused || listFocus && treeElementHasParent && !inputFocus && !treestickyScrollFocused"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+cmd+l",
+    "command": "cursorWordEndRight",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+cmd+h",
+    "command": "cursorWordLeft",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+4",
+    "command": "cursorHomeSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+[Equal]",
+    "command": "cursorEndSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+[Equal]",
+    "command": "cursorEnd",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "down",
+    "command": "editor.action.selectNextStickyScrollLine",
+    "when": "stickyScrollFocused"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
   {
     "key": "ctrl+u",
     "command": "cursorPageUp",
@@ -35,21 +156,6 @@
     "when": "suggestWidgetHasFocusedSuggestion && suggestWidgetVisible && textInputFocus"
   },
   {
-    "key": "ctrl+enter",
-    "command": "editor.action.revealDefinition",
-    "when": "editorHasDefinitionProvider && editorTextFocus"
-  },
-  {
-    "key": "ctrl+shift+cmd+j",
-    "command": "cursorBottomSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "space",
-    "command": "list.toggleExpand",
-    "when": "listFocus && !inputFocus && !treestickyScrollFocused"
-  },
-  {
     "key": "tab",
     "command": "editor.action.inlineSuggest.commit",
     "when": "inlineSuggestionVisible && !editorTabMovesFocus"
@@ -58,6 +164,16 @@
     "key": "tab",
     "command": "tab",
     "when": "editorTextFocus && !inlineSuggestionVisible && !editorTabMovesFocus"
+  },
+  {
+    "key": "ctrl+enter",
+    "command": "editor.action.revealDefinition",
+    "when": "editorHasDefinitionProvider && editorTextFocus"
+  },
+  {
+    "key": "space",
+    "command": "list.toggleExpand",
+    "when": "listFocus && !inputFocus && !treestickyScrollFocused"
   },
   {
     "key": "ctrl+shift+cmd+k",
@@ -72,16 +188,6 @@
   {
     "key": "cmd+d",
     "command": "explorer.newFolder"
-  },
-  {
-    "key": "ctrl+cmd+l",
-    "command": "cursorWordEndRight",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+cmd+h",
-    "command": "cursorWordLeft",
-    "when": "textInputFocus"
   },
   {
     "key": "cmd+n",
@@ -116,106 +222,6 @@
     "when": "bannerFocused"
   },
   {
-    "key": "ctrl+k",
-    "command": "workbench.action.quickOpenSelectPrevious",
-    "when": "inQuickOpen"
-  },
-  {
-    "key": "ctrl+shift+4",
-    "command": "cursorHomeSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+/",
-    "command": "editor.action.commentLine",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+shift+[Equal]",
-    "command": "cursorEndSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+]",
-    "command": "editor.action.indentLines",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+[",
-    "command": "editor.action.outdentLines",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+h",
-    "command": "list.collapse",
-    "when": "listFocus && treeElementCanCollapse && !inputFocus && !treestickyScrollFocused || listFocus && treeElementHasParent && !inputFocus && !treestickyScrollFocused"
-  },
-  {
-    "key": "ctrl+k",
-    "command": "cursorUp",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+cmd+k",
-    "command": "cursorTop",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+cmd+j",
-    "command": "cursorBottom",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+h",
-    "command": "cursorLeftSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+l",
-    "command": "cursorRightSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+k",
-    "command": "cursorUpSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+[Equal]",
-    "command": "cursorEnd",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+h",
-    "command": "cursorLeft",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+4",
-    "command": "cursorHome",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+l",
-    "command": "cursorRight",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+/",
-    "command": "notebook.commentSelectedCells",
-    "when": "notebookEditable && notebookEditorFocused && !inputFocus"
-  },
-  {
-    "key": "down",
-    "command": "editor.action.selectNextStickyScrollLine",
-    "when": "stickyScrollFocused"
-  },
-  {
-    "key": "ctrl+j",
-    "command": "workbench.action.quickOpenSelectNext",
-    "when": "inQuickOpen"
-  },
-  {
     "key": "alt+d",
     "command": "editor.emmet.action.wrapWithAbbreviation"
   },
@@ -243,11 +249,6 @@
   {
     "key": "alt+,",
     "command": "workbench.action.openGlobalKeybindings"
-  },
-  {
-    "key": "ctrl+j",
-    "command": "cursorDown",
-    "when": "textInputFocus"
   },
 
 
