@@ -189,6 +189,16 @@
     "command": "explorer.newFile"
   },
   {
+    "key": "ctrl+j",
+    "command": "list.focusDown",
+    "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "list.focusUp",
+    "when": "listFocus && !inputFocus && !treestickyScrollFocused"
+  },
+  {
     "key": "shift+cmd+w",
     "command": "workbench.action.closeUnmodifiedEditors"
   },
