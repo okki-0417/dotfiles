@@ -18,7 +18,6 @@ alias hg='history 100 | grep'
 alias chrome='open -a "Google Chrome"'
 alias op='open -a'
 
-alias smcb='cd /Users/mumumu/src/github.com/ostance/smcb'
 alias dce='docker-compose exec app'
 alias dcebe='docker-compose exec app bundle exec'
 alias dc='docker-compose'
