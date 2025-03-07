@@ -1,0 +1,81 @@
+{
+  "chat.commandCenter.enabled": false,
+
+  "diffEditor.ignoreTrimWhitespace": false,
+
+  "explorer.openEditors.visible": 1,
+
+  "editor.wordWrap": "off",
+  "editor.tabSize": 2,
+  "editor.fontSize": 13,
+  "editor.minimap.enabled": false,
+  "editor.scrollbar.vertical": "hidden",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.smoothScrolling": false,
+
+  // Sytax Hilight
+  "editor.tokenColorCustomizations": {
+    "comments": "#58b08b"
+  },
+
+  "files.insertFinalNewline": true,
+  "files.autoSave": "off",
+
+  "git.autofetch": true,
+  "git.confirmSync": false,
+  "git.openRepositoryInParentFolders": "never",
+
+  "rubyLsp.rubyExecutablePath": "/Users/mumumu/.rbenv/shims/ruby",
+
+  "security.workspace.trust.untrustedFiles": "open",
+
+  "terminal.integrated.gpuAcceleration": "off",
+
+  "tabnine.experimentalAutoImports": true,
+
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+  },
+
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "javascript.updateImportsOnFileMove.enabled": "always",
+
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.colorTheme": "Pink Cat Boo",
+
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#00000000",
+    "editor.lineHighlightBorder": "#00000000",
+    "editorCursor.foreground": "#fbb1f3",
+    "editor.selectionBackground": "#fbb1f370",
+    "editor.findMatchBackground": "#fbb1f370",
+
+    "statusBar.foreground": "#ccc",
+    "statusBar.background": "#212330",
+
+    "tab.activeBackground": "#fbb1f350",
+    "tab.inactiveBackground": "#2d2f43",
+    "tab.activeForeground": "#FFFFFF",
+    "tab.inactiveForeground": "#CCCCCC",
+    "tab.border": "#cccccc50"
+  },
+
+  "workbench.layoutControl.enabled": false,
+  "workbench.activityBar.location": "hidden",
+
+  "workbench.editor.enablePreview": false,
+
+  "window.titleBarStyle": "custom",
+  "window.commandCenter": false,
+
+  "workbench.startupEditor": "none",
+}
