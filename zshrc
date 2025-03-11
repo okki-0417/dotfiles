@@ -31,8 +31,8 @@ alias gb="git branch"
 alias grb="git rebase"
 alias grst="git reset"
 alias grst1="git reset HEAD^"
-alias gst="git stash"
-alias gstp="git stash pop"
+alias gsta="git stash"
+alias gstap="git stash pop"
 alias prlist="gh pr list"
 
 alias h="history 100"
@@ -44,9 +44,16 @@ alias op="open -a"
 alias t="touch"
 alias md="mkdir"
 
+alias cd~="cd ~"
+alias cd..="cd .."
+alias ..="cd .."
+alias ~="cd ~"
+
 alias rai="rails"
 alias car="cargo"
 alias tera="terraform"
+alias n="npm"
+alias nd="npm run dev"
 
 alias d="docker"
 alias dp="docker ps"
@@ -68,6 +75,14 @@ alias cdcorp="cd ~/src/github.com/ostance/corporatesite"
 
 function dceberspf() {
   docker compose exec app bundle exec rspec $1 --only-failures
+}
+
+function dceberspd() {
+  docker compose exec app bundle exec rspec $1 --format documentation
+}
+
+function dceberspfd() {
+  docker compose exec app bundle exec rspec $1 --only-failures --format documentation
 }
 
 function mkcd() {
@@ -101,6 +116,8 @@ function gbn() {
 }
 
 # Zshのタブ補完機能をさらに強化することができます。たとえば、fuzzy completion という曖昧検索を導入することで、ディレクトリやファイルの補完をより強力にできます。
+autoload -Uz compinit
+compinit
 zstyle ":completion:*" matcher-list "m:{a-zA-Z}={A-Za-z}"
 
 # zsh-autosuggestions: コマンドラインで過去に入力したコマンドをリアルタイムで提案してくれます。
@@ -122,3 +139,4 @@ export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /Users/mumumu/.tenv/Terraform/1.11.1/terraform terraform
+autoload -Uz compinit && compinit

@@ -1,0 +1,36 @@
+{
+	"Console Log": {
+		"prefix": "console.log",
+		"body": [
+			"console.log($1);",
+		],
+	},
+	"Type": {
+		"prefix": "type",
+		"body": [
+			"type $1 = {",
+			"}"
+		],
+	},
+	"Export default function": {
+		"prefix": "export default",
+    "body": [
+      "export default function $1() {",
+			"\treturn (",
+			"\t)",
+      "}"
+    ],
+	},
+	"Map": {
+		"prefix": "map",
+    "body": [
+      "map(($1) => {$2})",
+    ],
+	},
+	"Each": {
+		"prefix": "forEach",
+    "body": [
+      "forEach(($1) => {$2})",
+    ],
+	},
+}

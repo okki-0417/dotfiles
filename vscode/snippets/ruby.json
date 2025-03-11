@@ -1,0 +1,108 @@
+{
+	"Declare Model Class": {
+		"prefix":	"model",
+		"body": [ "# frozen_string_literal: true",
+							"",
+							"class $1 < ApplicationRecord",
+							"end",
+		],
+	},
+	"Declare Controller Class": {
+		"prefix":	"controller",
+		"body": [ "# frozen_string_literal: true",
+							"",
+							"class $1 < ApplicationController",
+							"end",
+		],
+	},
+
+	"Prepare RSpec": {
+		"prefix":	"rspec",
+		"body": [ "# frozen_string_literal: true",
+							"",
+							"require 'rails_helper'",
+							"",
+							"RSpec.describe $1, type: :$2 do",
+							"\tdescribe \"$3\" do",
+							"\t\tcontext \"\" do",
+							"\t\tend",
+							"\tend",
+							"end",
+		],
+	},
+	"Prepare Describe": {
+		"prefix":  "describe",
+    "body": [ "describe \"$1\" do",
+							"\tcontext \"$2\" do",
+							"\tend",
+              "end"
+    ],
+	},
+	"Prepare Context": {
+		"prefix":  "context",
+    "body": [ "context \"$2\" do",
+							"end",
+    ],
+	},
+	"Prepare It": {
+		"prefix":  "it",
+    "body": [ "it \"$2\" do",
+							"end",
+    ],
+	},
+	"Prepare Expect": {
+		"prefix":  "expect",
+    "body": [ "expect($1).to $2"],
+	},
+	"Prepare It_behaves_like": {
+		"prefix":  "it_behaves_like",
+    "body": [ "it_behaves_like :$1"],
+	},
+	"Prepare Subject": {
+		"prefix":  "subject",
+    "body": [ "subject { $1 }"],
+	},
+	"Prepare Response Example": {
+		"prefix":  "response",
+    "body": [ "expect(response).to have_http_status($1)"],
+	},
+	"Prepare Let": {
+		"prefix":  "let",
+    "body": [ "let(:$1) { $2 }" ],
+	},
+	"Prepare Before": {
+		"prefix":  "before",
+    "body": [ "before { $1 }" ],
+	},
+	"Prepare Include Context": {
+		"prefix":  "include_context",
+    "body": [ "include_context \"$1\"" ],
+	},
+	"Prepare FactoryBot": {
+		"prefix":  "FactoryBot",
+    "body": [ "FactoryBot.$1(:$2)" ],
+	},
+
+	"Prepare Binding Pry": {
+		"prefix":  "binding.pry",
+    "body": [ "binding.pry" ],
+	},
+
+	"Prepare params": {
+		"prefix":  "params",
+    "body": [ "params[:$1]" ],
+	},
+
+	"Prepare Resources": {
+		"prefix":  "resources",
+    "body": [ "resources :$1" ],
+	},
+	"Prepare Only": {
+		"prefix":  "only",
+    "body": [ "only: %i[$1]" ],
+	},
+	"frozen_string_literal": {
+		"prefix": "frozen_string_literal",
+    "body": [ "# frozen_string_literal: true" ],
+	},
+}

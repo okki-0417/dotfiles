@@ -1,0 +1,63 @@
+{
+	"Erb": {
+		"prefix": "er",
+    "body": [ "<% $1 %>" ],
+	},
+	"Erbe": {
+		"prefix": "pe",
+    "body": [ "<%= $1 %>" ],
+	},
+	"If": {
+		"prefix": "if",
+    "body": [ "<% if $1 %>" ],
+	},
+	"Elsif": {
+		"prefix": "elsif",
+    "body": [ "<% elsif $1 %>" ],
+	},
+	"Else": {
+		"prefix": "else",
+    "body": [ "<% else %>" ],
+	},
+	"End": {
+		"prefix": "end",
+    "body": [ "<% end %>" ],
+	},
+	"Form with": {
+		"prefix": "form_with",
+    "body": [ "<%= form_with model:$1, url:$2, method: $3 do |f| %>",
+							"<% end %>"
+	 ],
+	},
+	"Label": {
+		"prefix": "label",
+    "body": [ "<%= f.label :$1 %>"
+	 ],
+	},
+	"Text Field": {
+		"prefix": "text",
+    "body": [ "<%= f.text_field :$1 %>"
+	 ],
+	},
+	"Checkbox": {
+		"prefix": "checkbox",
+    "body": [ "<%= f.checkbox :$1 %>"
+	 ],
+	},
+	"Select": {
+		"prefix": "select",
+    "body": [ "<%= f.select :$1, array$2, {}, class: \"\" %>"
+	 ],
+	},
+	"Radio Button": {
+		"prefix": "radio_button",
+    "body": [ "<%= f.radio_button :$1 %>"
+	 ],
+	},
+
+	"Render Erb": {
+		"prefix": "render",
+    "body": [ "<%= render \"$1/partials/$2\" $3 %>"
+	 ],
+	},
+}

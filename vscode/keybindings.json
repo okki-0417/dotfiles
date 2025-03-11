@@ -1,5 +1,7 @@
 [
-  //追加系
+  //////////////////////////////////////////////////////
+  // 追加
+  //////////////////////////////////////////////////////
   {
     "key": "ctrl+h",
     "command": "cursorLeft",
@@ -255,9 +257,40 @@
     "key": "alt+,",
     "command": "workbench.action.openGlobalKeybindings"
   },
+  {
+    "key": "alt+j",
+    "command": "editor.action.moveLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "alt+k",
+    "command": "editor.action.moveLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+j",
+    "command": "editor.action.copyLinesDownAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+alt+k",
+    "command": "editor.action.copyLinesUpAction",
+    "when": "editorTextFocus && !editorReadonly"
+  },
+  {
+    "key": "ctrl+c",
+    "command": "copyRelativeFilePath"
+  },
+  {
+    "key": "ctrl+shift+enter",
+    "command": "workbench.action.navigateBack",
+    "when": "canNavigateBack"
+  },
 
 
+  //////////////////////////////////////////////////////
   //削除系
+  //////////////////////////////////////////////////////
   {
     "key": "cmd+l cmd+c",
     "command": "-extension.liveServer.goOffline",
@@ -2214,8 +2247,8 @@
     "when": "inQuickOpen"
   },
   {
-    "key": "alt+j",
-    "command": "editor.action.moveLinesDownAction",
+    "key": "shift+alt+up",
+    "command": "-editor.action.copyLinesUpAction",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
@@ -2224,8 +2257,8 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "alt+k",
-    "command": "editor.action.moveLinesUpAction",
+    "key": "shift+alt+down",
+    "command": "-editor.action.copyLinesDownAction",
     "when": "editorTextFocus && !editorReadonly"
   },
   {
@@ -2234,33 +2267,13 @@
     "when": "editorTextFocus && !editorReadonly"
   },
   {
-    "key": "shift+alt+j",
-    "command": "editor.action.copyLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "shift+alt+down",
-    "command": "-editor.action.copyLinesDownAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "shift+alt+k",
-    "command": "editor.action.copyLinesUpAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "shift+alt+up",
-    "command": "-editor.action.copyLinesUpAction",
-    "when": "editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "ctrl+c",
-    "command": "copyRelativeFilePath",
-    "when": "!editorFocus"
-  },
-  {
     "key": "shift+alt+cmd+c",
     "command": "-copyRelativeFilePath",
     "when": "!editorFocus"
+  },
+  {
+    "key": "browserback",
+    "command": "-workbench.action.navigateBack",
+    "when": "canNavigateBack"
   }
 ]
