@@ -19,6 +19,7 @@ alias editzsh="code ~/.zshrc"
 
 alias g="git"
 alias gch="git checkout"
+alias gchdev="git checkout develop"
 alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
@@ -28,11 +29,12 @@ alias gA="git add -A"
 alias gc="git commit"
 alias gp="git push"
 alias gb="git branch"
-alias grb="git rebase"
 alias grst="git reset"
 alias grst1="git reset HEAD^"
+alias grb="git rebase"
 alias gsta="git stash"
 alias gstap="git stash pop"
+alias gpu="git pull"
 alias prlist="gh pr list"
 
 alias h="history 100"
@@ -43,11 +45,16 @@ alias op="open -a"
 
 alias t="touch"
 alias md="mkdir"
+alias l="ls"
+
+alias lsapp="osascript -e 'tell application \"System Events\" to get name of processes whose background only is false'"
+alias osa="osascript -e"
 
 alias cd~="cd ~"
 alias cd..="cd .."
 alias ..="cd .."
 alias ~="cd ~"
+alias c="cd"
 
 alias rai="rails"
 alias car="cargo"
@@ -69,10 +76,6 @@ alias dcebersp="docker compose exec app bundle exec rspec"
 
 alias lsuniv="ls ~/Desktop/University/"
 
-alias cdpg="cd ~/playground"
-alias cdsmcb="cd ~/src/github.com/ostance/smcb"
-alias cdcorp="cd ~/src/github.com/ostance/corporatesite"
-
 function dceberspf() {
   docker compose exec app bundle exec rspec $1 --only-failures
 }
@@ -89,6 +92,50 @@ function mkcd() {
   mkdir -p "$1"
   cd "$1"
 }
+
+function rcd() {
+  local repo=$(ghq list --full-path | fzf)
+  [ -n "$repo" ] && cd "$repo"
+}
+
+function appq() {
+  if [ -z "$1" ]; then
+    echo "使用方法: quitapp <アプリ名>"
+    return 1
+  fi
+  osascript -e "quit app \"$1\""
+  echo "\"$1\" を終了しました。"
+}
+
+
+function rmexcept() {
+  if [ -z "$1" ]; then
+    echo "使用方法: rmexcept <除外するファイルまたはディレクトリ名>"
+    return 1
+  fi
+
+  # 除外パスが存在するか確認
+  if [ ! -e "$1" ]; then
+    echo "指定したファイルまたはディレクトリは存在しません: $1"
+    return 1
+  fi
+
+  echo "次のファイルとディレクトリを削除します（$1 を除く）:"
+
+  # 除外対象を除いた一覧表示
+  find . -mindepth 1 \( -path "./$1" -prune \) -o -print
+
+  echo -n "本当に削除しますか？ (y/N): "
+  read -r confirm
+  if [[ "$confirm" =~ ^[Yy]$ ]]; then
+    # 削除を実行（pruneで除外対象を保護）
+    find . -mindepth 1 \( -path "./$1" -prune \) -o -exec rm -rf {} +
+    echo "削除が完了しました。"
+  else
+    echo "削除をキャンセルしました。"
+  fi
+}
+
 
 function tukareta() {
   echo "頑張れ~"
