@@ -18,8 +18,8 @@ add-zsh-hook precmd update_prompt
 alias editzsh="code ~/.zshrc"
 
 alias g="git"
-alias gch="git checkout"
 alias gchdev="git checkout develop"
+alias gchb="git checkout -b"
 alias gs="git status"
 alias gd="git diff"
 alias gds="git diff --staged"
@@ -46,17 +46,17 @@ alias op="open -a"
 alias t="touch"
 alias md="mkdir"
 alias l="ls"
+alias lg="ls | grep"
+alias cwd="pwd | pbcopy"
 
 alias lsapp="osascript -e 'tell application \"System Events\" to get name of processes whose background only is false'"
 alias osa="osascript -e"
 
-alias cd~="cd ~"
-alias cd..="cd .."
 alias ..="cd .."
 alias ~="cd ~"
 alias c="cd"
+alias dl="cd ~/Downloads"
 
-alias rai="rails"
 alias car="cargo"
 alias tera="terraform"
 alias n="npm"
@@ -76,16 +76,28 @@ alias dcebersp="docker compose exec app bundle exec rspec"
 
 alias lsuniv="ls ~/Desktop/University/"
 
+function gch() {
+  if [[ "$1" == "--" ]]; then
+    if [[ $# -eq 2 ]]; then
+      git checkout "$2"
+    elif [[ $# -eq 1 && "$2" == "." ]]; then
+      app_name=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
+      echo "⚠️ 本当に「${app_name}」の変更を破棄しますか？ (Y/N)"
+      read -r answer
+      if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+        git checkout -- .
+      else
+        echo "キャンセルしました。"
+      fi
+    fi
+  else
+    git checkout "$@"
+  fi
+}
+
+
 function dceberspf() {
   docker compose exec app bundle exec rspec $1 --only-failures
-}
-
-function dceberspd() {
-  docker compose exec app bundle exec rspec $1 --format documentation
-}
-
-function dceberspfd() {
-  docker compose exec app bundle exec rspec $1 --only-failures --format documentation
 }
 
 function mkcd() {
@@ -93,49 +105,20 @@ function mkcd() {
   cd "$1"
 }
 
-function rcd() {
+function cdr() {
+  # git管理されているプロジェクトのディレクトリに移動
   local repo=$(ghq list --full-path | fzf)
   [ -n "$repo" ] && cd "$repo"
 }
 
 function appq() {
   if [ -z "$1" ]; then
-    echo "使用方法: quitapp <アプリ名>"
+    echo "使用方法: appq <アプリ名>"
     return 1
   fi
   osascript -e "quit app \"$1\""
   echo "\"$1\" を終了しました。"
 }
-
-
-function rmexcept() {
-  if [ -z "$1" ]; then
-    echo "使用方法: rmexcept <除外するファイルまたはディレクトリ名>"
-    return 1
-  fi
-
-  # 除外パスが存在するか確認
-  if [ ! -e "$1" ]; then
-    echo "指定したファイルまたはディレクトリは存在しません: $1"
-    return 1
-  fi
-
-  echo "次のファイルとディレクトリを削除します（$1 を除く）:"
-
-  # 除外対象を除いた一覧表示
-  find . -mindepth 1 \( -path "./$1" -prune \) -o -print
-
-  echo -n "本当に削除しますか？ (y/N): "
-  read -r confirm
-  if [[ "$confirm" =~ ^[Yy]$ ]]; then
-    # 削除を実行（pruneで除外対象を保護）
-    find . -mindepth 1 \( -path "./$1" -prune \) -o -exec rm -rf {} +
-    echo "削除が完了しました。"
-  else
-    echo "削除をキャンセルしました。"
-  fi
-}
-
 
 function tukareta() {
   echo "頑張れ~"
@@ -179,6 +162,8 @@ eval "$(rbenv init - zsh)"
 
 export PATH=$PATH:/Users/mumumu/sl
 
+
+#　ここから下は何が起こっているか分からないのでいつか調べる
 test -e /Users/mumumu/.iterm2_shell_integration.zsh && source /Users/mumumu/.iterm2_shell_integration.zsh || true
 export PATH="/usr/local/opt/mysql-client/bin:$PATH"
 

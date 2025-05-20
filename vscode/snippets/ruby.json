@@ -20,7 +20,7 @@
 		"prefix":	"rspec",
 		"body": [ "# frozen_string_literal: true",
 							"",
-							"require 'rails_helper'",
+							"require \"rails_helper\"",
 							"",
 							"RSpec.describe $1, type: :$2 do",
 							"\tdescribe \"$3\" do",
@@ -33,7 +33,9 @@
 	"Prepare Describe": {
 		"prefix":  "describe",
     "body": [ "describe \"$1\" do",
-							"\tcontext \"$2\" do",
+							"\tsubject { $2 }",
+							"",
+							"\tcontext \"$3\" do",
 							"\tend",
               "end"
     ],

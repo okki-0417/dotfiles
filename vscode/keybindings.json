@@ -1,6 +1,6 @@
 [
   //////////////////////////////////////////////////////
-  // 追加
+  // 追加系
   //////////////////////////////////////////////////////
   {
     "key": "ctrl+h",
@@ -285,6 +285,16 @@
     "key": "ctrl+shift+enter",
     "command": "workbench.action.navigateBack",
     "when": "canNavigateBack"
+  },
+  {
+    "key": "ctrl+shift+cmd+l",
+    "command": "cursorWordEndRightSelect",
+    "when": "textInputFocus"
+  },
+  {
+    "key": "ctrl+shift+cmd+h",
+    "command": "cursorWordLeftSelect",
+    "when": "textInputFocus"
   },
 
 
@@ -2277,18 +2287,8 @@
     "when": "canNavigateBack"
   },
   {
-    "key": "ctrl+shift+cmd+l",
-    "command": "cursorWordEndRightSelect",
-    "when": "textInputFocus"
-  },
-  {
     "key": "shift+alt+right",
     "command": "-cursorWordEndRightSelect",
-    "when": "textInputFocus"
-  },
-  {
-    "key": "ctrl+shift+cmd+h",
-    "command": "cursorWordLeftSelect",
     "when": "textInputFocus"
   },
   {
@@ -2304,5 +2304,10 @@
   {
     "key": "cmd+[Semicolon] cmd+l",
     "command": "-testing.debugLastRun"
-  }
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
 ]
