@@ -112,12 +112,11 @@ function cdr() {
 }
 
 function appq() {
-  if [ -z "$1" ]; then
-    echo "使用方法: appq <アプリ名>"
-    return 1
-  fi
-  osascript -e "quit app \"$1\""
-  echo "\"$1\" を終了しました。"
+  for app in "$@"; do
+    osascript -e "quit app \"$app\""
+  done
+
+  echo "\"$@\" を終了しました。"
 }
 
 function tukareta() {
