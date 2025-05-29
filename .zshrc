@@ -78,9 +78,7 @@ alias lsuniv="ls ~/Desktop/University/"
 
 function gch() {
   if [[ "$1" == "--" ]]; then
-    if [[ $# -eq 2 ]]; then
-      git checkout "$2"
-    elif [[ $# -eq 1 && "$2" == "." ]]; then
+    if [[ $# -eq 2 && "$2" == "." ]]; then
       app_name=$(basename "$(git rev-parse --show-toplevel 2>/dev/null)")
       echo "⚠️ 本当に「${app_name}」の変更を破棄しますか？ (Y/N)"
       read -r answer
