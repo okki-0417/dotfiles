@@ -1,6 +1,4 @@
 {
-  "chat.commandCenter.enabled": false,
-
   "diffEditor.ignoreTrimWhitespace": false,
 
   "explorer.openEditors.visible": 1,
@@ -12,6 +10,10 @@
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
   "editor.smoothScrolling": false,
+
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "always"
+  },
 
   // Sytax Hilight
   "editor.tokenColorCustomizations": {
@@ -31,24 +33,42 @@
 
   "terminal.integrated.gpuAcceleration": "off",
 
-  "tabnine.experimentalAutoImports": true,
-
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true,
+    "editor.formatOnSave": true
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  },
+  "[ruby]": {
     "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+  },
+  "[erb]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "rubocop.vscode-rubocop"
+  },
+  "[r]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "REditorSupport.r"
   },
 
   "typescript.updateImportsOnFileMove.enabled": "always",
   "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "javascript.preferences.importModuleSpecifier": "non-relative",
 
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
   "[jsonc]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-
   "workbench.iconTheme": "material-icon-theme",
   "workbench.colorTheme": "Pink Cat Boo",
 
@@ -68,8 +88,6 @@
     "tab.inactiveForeground": "#CCCCCC",
     "tab.border": "#cccccc50"
   },
-
-  "workbench.layoutControl.enabled": false,
   "workbench.activityBar.location": "hidden",
 
   "workbench.editor.enablePreview": false,
@@ -78,4 +96,7 @@
   "window.commandCenter": false,
 
   "workbench.startupEditor": "none",
+  "search.useIgnoreFiles": false,
+  "workbench.layoutControl.enabled": false,
+  "python.analysis.typeCheckingMode": "basic"
 }

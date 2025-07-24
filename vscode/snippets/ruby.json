@@ -15,7 +15,10 @@
 							"end",
 		],
 	},
-
+	"let current_user": {
+		"prefix": "lc",
+		"body": "let(:current_user) { create(:user) }"
+	},
 	"Prepare RSpec": {
 		"prefix":	"rspec",
 		"body": [ "# frozen_string_literal: true",
@@ -23,6 +26,40 @@
 							"require \"rails_helper\"",
 							"",
 							"RSpec.describe $1, type: :$2 do",
+							"",
+							"\tdescribe \"$3\" do",
+							"\t\tsubject { $4 }",
+							"\t\tcontext \"\" do",
+							"\t\tend",
+							"\tend",
+							"end",
+		],
+	},
+	"Prepare RSpec - Request Spec": {
+		"prefix":	"reqspec",
+		"body": [ "# frozen_string_literal: true",
+							"",
+							"require \"rails_helper\"",
+							"",
+							"RSpec.describe $1, type: :request do",
+							"\tdescribe \"#$2\" do",
+							"\t\tsubject { $3 }",
+							"",
+							"\t\tcontext \"\" do",
+							"\t\tend",
+							"\tend",
+							"end",
+		],
+	},
+	"Prepare RSpec - Model Spec": {
+		"prefix":	"modelspec",
+		"body": [ "# frozen_string_literal: true",
+							"",
+							"require \"rails_helper\"",
+							"",
+							"RSpec.describe $1, type: :model do",
+							"\tsubject { $2 }",
+							"",
 							"\tdescribe \"$3\" do",
 							"\t\tcontext \"\" do",
 							"\t\tend",
@@ -31,7 +68,7 @@
 		],
 	},
 	"Prepare Describe": {
-		"prefix":  "describe",
+		"prefix": "describe",
     "body": [ "describe \"$1\" do",
 							"\tsubject { $2 }",
 							"",
@@ -41,70 +78,90 @@
     ],
 	},
 	"Prepare Context": {
-		"prefix":  "context",
+		"prefix": "context",
     "body": [ "context \"$2\" do",
 							"end",
     ],
 	},
 	"Prepare It": {
-		"prefix":  "it",
+		"prefix": "it",
     "body": [ "it \"$2\" do",
 							"end",
     ],
 	},
 	"Prepare Expect": {
-		"prefix":  "expect",
-    "body": [ "expect($1).to $2"],
+		"prefix": "expect",
+    "body": "expect($1).to $2",
 	},
 	"Prepare It_behaves_like": {
-		"prefix":  "it_behaves_like",
-    "body": [ "it_behaves_like :$1"],
+		"prefix": "it_behaves_like",
+    "body": "it_behaves_like :$1",
 	},
 	"Prepare Subject": {
-		"prefix":  "subject",
-    "body": [ "subject { $1 }"],
+		"prefix": "subject",
+    "body": "subject { $1 }",
 	},
 	"Prepare Response Example": {
-		"prefix":  "response",
-    "body": [ "expect(response).to have_http_status($1)"],
+		"prefix": "response",
+    "body": "expect(response).to have_http_status($1)",
 	},
 	"Prepare Let": {
-		"prefix":  "let",
-    "body": [ "let(:$1) { $2 }" ],
+		"prefix": "let",
+    "body": "let(:$1) { $2 }",
+	},
+	"let(:current_user...": {
+		"prefix": "letc",
+		"body": "let(:current_user) { create(:user) }",
 	},
 	"Prepare Before": {
-		"prefix":  "before",
-    "body": [ "before { $1 }" ],
+		"prefix": "before",
+    "body": "before { $1 }",
+	},
+	"Prepare Stab": {
+		"prefix": "allow",
+    "body": "allow($1).to receive(:$2).and_return($3)",
+	},
+	"Prepare StabInstance": {
+		"prefix": "allow_any_instance_of",
+    "body": "allow_any_instance_of($1).to receive(:$2).and_return($3)",
 	},
 	"Prepare Include Context": {
-		"prefix":  "include_context",
-    "body": [ "include_context \"$1\"" ],
+		"prefix": "include_context",
+    "body": "include_context \"$1\"",
 	},
 	"Prepare FactoryBot": {
-		"prefix":  "FactoryBot",
-    "body": [ "FactoryBot.$1(:$2)" ],
+		"prefix": "FactoryBot",
+    "body": "FactoryBot.$1(:$2)",
+	},
+	"Prepare FactoryBot.create": {
+		"prefix": "create",
+    "body": "create(:$1)",
 	},
 
 	"Prepare Binding Pry": {
-		"prefix":  "binding.pry",
-    "body": [ "binding.pry" ],
+		"prefix": "binding.pry",
+    "body": "binding.pry",
 	},
 
 	"Prepare params": {
-		"prefix":  "params",
-    "body": [ "params[:$1]" ],
+		"prefix": "params",
+    "body": "params[:$1]",
 	},
 
 	"Prepare Resources": {
-		"prefix":  "resources",
-    "body": [ "resources :$1" ],
+		"prefix": "resources",
+    "body": "resources :$1",
 	},
 	"Prepare Only": {
-		"prefix":  "only",
-    "body": [ "only: %i[$1]" ],
+		"prefix": "only",
+    "body": "only: %i[$1]",
 	},
 	"frozen_string_literal": {
 		"prefix": "frozen_string_literal",
-    "body": [ "# frozen_string_literal: true" ],
+    "body": "# frozen_string_literal: true",
 	},
+	"has_many": {
+		"prefix": "has_many",
+		"body": "has_many :$1s"
+	}
 }

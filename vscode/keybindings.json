@@ -2310,4 +2310,14 @@
     "command": "-editor.action.startFindReplaceAction",
     "when": "editorFocus || editorIsOpen"
   },
+  {
+    "key": "cmd+enter",
+    "command": "-r.runSelection",
+    "when": "editorTextFocus && editorLangId == 'r'"
+  },
+  {
+    "key": "cmd+enter",
+    "command": "-r.runSelection",
+    "when": "editorTextFocus && editorLangId == 'rmd'"
+  },
 ]
