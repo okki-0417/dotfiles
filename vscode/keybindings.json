@@ -2320,4 +2320,75 @@
     "command": "-r.runSelection",
     "when": "editorTextFocus && editorLangId == 'rmd'"
   },
+  {
+    "key": "alt+cmd+c",
+    "command": "-toggleSearchEditorCaseSensitive",
+    "when": "inSearchEditor && searchInputBoxFocus"
+  },
+  {
+    "key": "alt+cmd+c",
+    "command": "-debug.copyWatchExpression",
+    "when": "watchExpressionsExist && !expressionSelected && focusedView == 'workbench.debug.watchExpressionsView'"
+  },
+  {
+    "key": "alt+cmd+c",
+    "command": "-search.action.copyPath",
+    "when": "fileMatchOrFolderMatchWithResourceFocus"
+  },
+  {
+    "key": "alt+cmd+c",
+    "command": "-toggleFindCaseSensitive",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+cmd+c",
+    "command": "-toggleSearchCaseSensitive",
+    "when": "searchViewletFocus && !fileMatchOrFolderMatchFocus"
+  },
+  {
+    "key": "ctrl+shift+cmd+p",
+    "command": "editor.action.inspectTMScopes"
+  },
+  {
+    "key": "alt+cmd+j",
+    "command": "editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+down",
+    "command": "-editor.action.insertCursorBelow",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "alt+cmd+up",
+    "command": "-editor.action.insertCursorAbove",
+    "when": "editorTextFocus"
+  },
+  {
+    "key": "shift+cmd+k",
+    "command": "-editor.action.deleteLines",
+    "when": "textInputFocus && !editorReadonly"
+  },
+  {
+    "key": "shift+cmd+s",
+    "command": "rubocop.formatAutocorrects"
+  },
+  {
+    "key": "shift+cmd+s",
+    "command": "-workbench.action.files.saveAs"
+  },
+  {
+    "key": "shift+cmd+s",
+    "command": "-workbench.action.files.saveLocalFile",
+    "when": "remoteFileDialogVisible"
+  },
+  {
+    "key": "ctrl+shift+cmd+e",
+    "command": "workbench.view.extension.figma"
+  },
 ]

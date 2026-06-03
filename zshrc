@@ -1,6 +1,7 @@
-export GOPATH=$HOME/go
-export PATH=$PATH:GOPATH/bin
 export PATH="/opt/homebrew/bin:$PATH"
+
+export PATH="$PATH:$HOME/go/bin"
+export PATH="$PATH:$HOME/.cargo/bin"
 
 # Gitブランチ名を取得する関数（リアルタイム更新対応）
 git_branch() {
@@ -22,8 +23,14 @@ add-zsh-hook precmd update_prompt
 alias editzsh="code ~/.zshrc"
 alias z="source ~/.zshrc"
 
+alias codei="code-insiders"
+alias code.="code ."
+
+alias du="ncdu"
+
 alias g="git"
 alias gchdev="git checkout develop"
+alias gchmain="git checkout main"
 alias gchb="git checkout -b"
 alias gs="git status"
 alias gd="git diff"
@@ -31,10 +38,12 @@ alias gds="git diff --staged"
 alias gl="git log"
 alias ga="git add"
 alias gau="git add -u"
+alias gchp="git cherry-pick"
 alias gA="git add -A"
 alias gc="git commit"
 alias gp="git push"
 alias gb="git branch"
+alias gb-unpushed="git branch -vv | grep -v 'origin/' | awk '{print \$1}'"
 alias grst="git reset"
 alias grst1="git reset HEAD^"
 alias grb="git rebase"
@@ -48,16 +57,20 @@ alias hg="history 100 | grep"
 alias gr="grep"
 
 alias chrome="open -a 'Google Chrome'"
+alias brave="open -a 'Brave Browser'"
+alias notes="open -a Notes"
+alias excel="open -a 'Microsoft Excel'"
+alias pptx="open -a 'Microsoft PowerPoint'"
 alias op="open -a"
+alias pptx="open -a 'Microsoft PowerPoint'"
+alias xlsx="open -a 'Microsoft Excel'"
+
+alias cl="claude"
 
 alias t="touch"
 alias md="mkdir"
 alias l="ls"
 alias lg="ls | grep"
-alias cwd="pwd | pbcopy"
-
-alias lsapp="osascript -e 'tell application \"System Events\" to get name of processes whose background only is false'"
-alias osa="osascript -e"
 
 alias ..="cd .."
 alias ~="cd ~"
@@ -65,26 +78,70 @@ alias c="cd"
 alias dl="cd ~/Downloads"
 
 alias car="cargo"
+alias cr="cargo run"
 alias tera="terraform"
-alias n="npm"
-alias nd="npm run dev"
-alias nr="npm run"
-alias ni="npm install"
+alias n="pnpm"
+alias nd="pnpm run dev"
+alias nr="pnpm run"
+alias nt="pnpm run typecheck"
+alias ni="pnpm install"
+alias nl="pnpm lint"
+alias nf="pnpm format"
 
 alias d="docker"
-alias dp="docker ps"
+alias dp="rdps" #docker ps
 alias dc="docker compose"
 alias dcd="docker compose down"
 alias dcu="docker compose up"
 alias dce="docker compose exec app"
 alias dcebe="docker compose exec app bundle exec"
 alias rst="docker compose restart"
-alias su="docker compose exec app bundle exec bin/setup"
+alias stup="docker compose exec app bundle exec bin/setup"
+alias binsu="docker compose exec app bin/setup"
 alias r="docker compose exec app bundle exec rails"
 alias rc="docker compose exec app bundle exec rails console"
-alias rsp="docker compose exec app bundle exec rspec"
+
 
 alias lsuniv="ls ~/Desktop/University/"
+
+function rm() {
+  # 渡された引数を文字列としてチェックし、-r/R と -f の組み合わせがあるか確認
+  if echo "$@" | grep -E '(-rf|-fr)' > /dev/null; then
+
+    # 危険な操作が検出された場合の警告と確認
+    echo -e "\033[31m" # 文字色を赤色に設定
+    echo "======================================================================"
+    echo "  ⚠️ 警告: 復元不可能な 'rm -rf' 相当の操作が検出されました。"
+    echo "  引数: $@"
+    echo "======================================================================"
+    echo -e "\033[0m" # 文字色をリセット
+
+    # 非対話的環境（TTYなし）の場合は確認をスキップ
+    if [[ ! -t 0 ]]; then
+      echo "非対話的環境のため、確認なしで実行します。"
+      /bin/rm "$@"
+      return $?
+    fi
+
+    echo "本当に実行しますか？ (y/N): "
+    read -r confirm
+
+    if [[ "$confirm" =~ ^[yY]$ ]]; then
+      # 'y'または'Y'が入力された場合、元の rm コマンドを実行
+      echo -e "\033[33m実行中...\033[0m" # '実行中'を黄色で表示
+      /bin/rm "$@"
+      echo -e "\033[32m完了しました。\033[0m" # '完了しました'を緑色で表示
+    else
+      # それ以外の場合、操作をキャンセル
+      echo "操作をキャンセルしました。"
+      return 1
+    fi
+
+  else
+    # 危険な組み合わせでなければ、安全な /bin/rm -i を実行
+    /bin/rm "$@"
+  fi
+}
 
 function gch() {
   if [[ "$1" == "--" && "$2" == "." ]]; then
@@ -101,12 +158,12 @@ function gch() {
   fi
 }
 
-function gcm() {
-  git commit -m "$1"
-}
-
 function frsp() {
   docker compose exec app bundle exec rspec $1 --only-failures
+}
+
+function rsp() {
+  docker compose exec app bundle exec rspec $1 --format documentation
 }
 
 function mkcd() {
@@ -120,15 +177,42 @@ function cdr() {
   [ -n "$repo" ] && cd "$repo"
 }
 
+function lsapp() {
+  local raw_output
+  raw_output=$(osascript -e 'tell application "System Events" to get name of processes whose background only is false')
+
+  local running_apps=("${(@s:,:)raw_output}")
+  # 各要素の前後の空白を削除して表示
+  for i in {1..${#running_apps[@]}}; do
+    running_apps[$i]="${running_apps[$i]## }"
+    running_apps[$i]="${running_apps[$i]%% }"
+    echo "$running_apps[$i]"
+  done
+}
+
 function appq() {
-  local exclude=("iTerm2" "Electron" "Google Chrome")
+  # 引数が与えられた場合はそれらのアプリを終了
+  if [[ $# -gt 0 ]]; then
+    for app in "$@"; do
+      echo "終了中: $app"
+      osascript -e "quit app \"$app\"" 2>/dev/null
+    done
+    return
+  fi
+
+  # 引数がない場合は従来の挙動
+  local exclude=("iTerm2" "Electron" "Google Chrome" "Code")
   echo "\"$exclude\"以外を終了します。"
 
   local raw_output
   raw_output=$(osascript -e 'tell application "System Events" to get name of processes whose background only is false')
 
-  local IFS=$'\n'
-  local running_apps=($(echo "$raw_output" | sed 's/, /\n/g; s/^"//; s/"$//'))
+  local running_apps=("${(@s:,:)raw_output}")
+  # 各要素の前後の空白を削除
+  for i in {1..${#running_apps[@]}}; do
+    running_apps[$i]="${running_apps[$i]## }"
+    running_apps[$i]="${running_apps[$i]%% }"
+  done
 
   for app in "${running_apps[@]}"; do
     local should_skip=false
@@ -146,29 +230,34 @@ function appq() {
   done
 }
 
-function tukareta() {
-  printf "頑張れ~%.0s" {1..300}; echo
-}
-
 function cduniv() {
   cd ~/Desktop/University
   ls
 }
 
-function cduniv() {
-  cd ~/Desktop/University/$1
+function rmsc() {
+  echo "~/Downloads内のscreencapture-で始まる画像を削除します"
+  local files=(~/Downloads/screencapture-*(N))
+  if [[ ${#files[@]} -eq 0 ]]; then
+    echo "削除対象のファイルがありません"
+  else
+    echo "削除対象: ${#files[@]}件"
+    ls -la ~/Downloads/screencapture-*
+    echo "本当に削除しますか？ (Y/N)"
+    read -r answer
+    if [[ "$answer" == "y" || "$answer" == "Y" ]]; then
+      rm ~/Downloads/screencapture-*
+      echo "削除完了"
+    else
+      echo "キャンセルしました"
+    fi
+  fi
 }
 
 function mvuniv() {
   mkdir -p ~/Desktop/University/$2
   mv ~/Downloads/$1 ~/Desktop/University/$2/$1
   cd ~/Desktop/University/$2
-}
-
-# 現在のブランチ名をクリップボードにコピー
-function gbn() {
-  git branch --contains | cut -d " " -f 2 | pbcopy
-  git branch --contains | cut -d " " -f 2
 }
 
 # Zshのタブ補完機能をさらに強化することができます。たとえば、fuzzy completion という曖昧検索を導入することで、ディレクトリやファイルの補完をより強力にできます。
@@ -198,3 +287,14 @@ autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C ~/.tenv/Terraform/1.11.1/terraform terraform
 autoload -Uz compinit && compinit
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(direnv hook zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/mumumu/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

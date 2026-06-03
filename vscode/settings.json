@@ -1,8 +1,6 @@
 {
   "diffEditor.ignoreTrimWhitespace": false,
 
-  "explorer.openEditors.visible": 1,
-
   "editor.wordWrap": "off",
   "editor.tabSize": 2,
   "editor.fontSize": 13,
@@ -11,73 +9,114 @@
   "editor.scrollbar.horizontal": "hidden",
   "editor.smoothScrolling": false,
 
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "always"
-  },
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.eslint",
+  ],
 
-  // Sytax Hilight
   "editor.tokenColorCustomizations": {
-    "comments": "#58b08b"
+    "comments": "#58b08b",
+    "textMateRules": [
+      {
+        "scope": "punctuation.separator.key-value",
+        "settings": {
+          "foreground": "#ffff00",
+        },
+      },
+      {
+        "scope": "variable.other.readwrite.instance.ruby",
+        "settings": {
+          "foreground": "#9CDCFE",
+        },
+      },
+      {
+        "scope": "support.function.kernel.ruby",
+        "settings": {
+          "fontStyle": "",
+        },
+      },
+      {
+        "scope": "entity.name.type.cs",
+        "settings": {
+          "foreground": "#9CACFF",
+        },
+      },
+    ],
   },
+  "editor.semanticTokenColorCustomizations": {},
 
+  "files.autoSave": "afterDelay",
+  "files.associations": {
+    "*.css": "tailwindcss",
+  },
   "files.insertFinalNewline": true,
-  "files.autoSave": "off",
+  "files.trimTrailingWhitespace": true,
 
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "never",
+  "github.copilot.nextEditSuggestions.enabled": true,
 
   "rubyLsp.rubyExecutablePath": "/Users/mumumu/.rbenv/shims/ruby",
+  "erb.erb-lint.executePath": "/Users/mumumu/.rbenv/shims/erb_lint",
+  "rubocop.autocorrect": false,
 
   "security.workspace.trust.untrustedFiles": "open",
+  "search.useIgnoreFiles": false,
 
   "terminal.integrated.gpuAcceleration": "off",
 
+  "js/ts.updateImportsOnFileMove.enabled": "always",
+  "js/ts.preferences.importModuleSpecifier": "non-relative",
+
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[typescript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
+    "editor.formatOnSave": true,
   },
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-  },
-  "[ruby]": {
     "editor.formatOnSave": true,
-    "editor.defaultFormatter": "rubocop.vscode-rubocop"
   },
-  "[erb]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "rubocop.vscode-rubocop"
-  },
-  "[r]": {
-    "editor.formatOnSave": true,
-    "editor.defaultFormatter": "REditorSupport.r"
-  },
-
-  "typescript.updateImportsOnFileMove.enabled": "always",
-  "javascript.updateImportsOnFileMove.enabled": "always",
-  "typescript.preferences.importModuleSpecifier": "non-relative",
-  "javascript.preferences.importModuleSpecifier": "non-relative",
-
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
   },
+  "[ruby]": {
+    "editor.defaultFormatter": "rubocop.vscode-rubocop",
+    "editor.formatOnSave": true,
+  },
+  "[erb]": {
+    "editor.formatOnSave": false,
+    "editor.defaultFormatter": "manuelpuyol.erb-linter",
+  },
+
   "workbench.iconTheme": "material-icon-theme",
-  "workbench.colorTheme": "Pink Cat Boo",
+  "workbench.activityBar.location": "hidden",
+  "workbench.layoutControl.enabled": false,
 
   "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#00000000",
-    "editor.lineHighlightBorder": "#00000000",
+    "editor.lineHighlightBackground": "#0000",
+    "editor.lineHighlightBorder": "#0000",
     "editorCursor.foreground": "#fbb1f3",
-    "editor.selectionBackground": "#fbb1f370",
     "editor.findMatchBackground": "#fbb1f370",
+    "editor.selectionBackground": "#fbb1f370",
+    "editorGutter.modifiedBackground": "#00f2ff",
+    "editorGutter.addedBackground": "#00FF7F",
+    "editorGutter.deletedBackground": "#FF6347",
+
+    "list.activeSelectionBackground": "#fbb1f370",
+    "list.focusOutline": "#fbb1f3",
+    "list.inactiveSelectionBackground": "#fbb1f370",
+    "list.hoverBackground": "#fbb1f370",
 
     "statusBar.foreground": "#ccc",
     "statusBar.background": "#212330",
@@ -86,17 +125,17 @@
     "tab.inactiveBackground": "#2d2f43",
     "tab.activeForeground": "#FFFFFF",
     "tab.inactiveForeground": "#CCCCCC",
-    "tab.border": "#cccccc50"
+    "tab.border": "#cccccc50",
   },
-  "workbench.activityBar.location": "hidden",
 
-  "workbench.editor.enablePreview": false,
-
-  "window.titleBarStyle": "custom",
   "window.commandCenter": false,
-
-  "workbench.startupEditor": "none",
-  "search.useIgnoreFiles": false,
-  "workbench.layoutControl.enabled": false,
-  "python.analysis.typeCheckingMode": "basic"
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+  },
+  "workbench.colorTheme": "Pink Cat Boo",
+  "workbench.editor.enablePreview": false,
+  "workbench.browser.showInTitleBar": false,
 }
