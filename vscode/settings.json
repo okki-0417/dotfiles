@@ -1,6 +1,11 @@
 {
   "diffEditor.ignoreTrimWhitespace": false,
 
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "*.ts": "${capture}.test.ts",
+    "*.tsx": "${capture}.test.tsx",
+  },
   "editor.wordWrap": "off",
   "editor.tabSize": 2,
   "editor.fontSize": 13,
@@ -8,12 +13,6 @@
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
   "editor.smoothScrolling": false,
-
-  "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": [
-    "source.addMissingImports",
-    "source.fixAll.eslint",
-  ],
 
   "editor.tokenColorCustomizations": {
     "comments": "#58b08b",
@@ -71,19 +70,24 @@
   "js/ts.preferences.importModuleSpecifier": "non-relative",
 
   "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
   },
   "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
   },
+  "[markdown]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.formatOnSave": true,
+  },
+  "[astro]": {},
   "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.typescript-language-features",
     "editor.formatOnSave": true,
   },
   "[json]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true,
   },
   "[jsonc]": {
@@ -138,4 +142,5 @@
   "workbench.colorTheme": "Pink Cat Boo",
   "workbench.editor.enablePreview": false,
   "workbench.browser.showInTitleBar": false,
+  "chat.viewSessions.orientation": "stacked",
 }

@@ -50,6 +50,10 @@ alias grb="git rebase"
 alias gsta="git stash"
 alias gstap="git stash pop"
 alias gpu="git pull"
+alias gw="git worktree"
+alias gwl="git worktree list"
+alias gwa="git worktree add"
+alias gwr="git worktree remove"
 alias prlist="gh pr list"
 
 alias h="history 100"
@@ -61,7 +65,7 @@ alias brave="open -a 'Brave Browser'"
 alias notes="open -a Notes"
 alias excel="open -a 'Microsoft Excel'"
 alias pptx="open -a 'Microsoft PowerPoint'"
-alias op="open -a"
+alias opa="open -a"
 alias pptx="open -a 'Microsoft PowerPoint'"
 alias xlsx="open -a 'Microsoft Excel'"
 
@@ -298,3 +302,6 @@ case ":$PATH:" in
   *) export PATH="$PNPM_HOME:$PATH" ;;
 esac
 # pnpm end
+
+# Vite+ bin (https://viteplus.dev)
+. "$HOME/.vite-plus/env"
