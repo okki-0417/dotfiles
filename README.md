@@ -8,7 +8,6 @@ my dotfiles (macOS)
 | --- | --- |
 | `zsh/.zshrc` | `~/.zshrc` |
 | `vim/.vimrc` | `~/.vimrc` |
-| `brew/Brewfile` | `~/.Brewfile` |
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` |
 | `vscode/keybindings.json` | `~/Library/Application Support/Code/User/keybindings.json` |
 | `vscode/snippets/` | `~/Library/Application Support/Code/User/snippets` |
@@ -38,13 +37,6 @@ cd ~/src/github.com/mumumu/dotfiles
 
 - 何度実行しても安全です（既存のリンクは張り直されるだけ）
 - リンク先に実ファイルがある場合は `<file>.backup.<日時>` に退避してからリンクします
-
-### Homebrew
-
-```sh
-brew bundle --global          # ~/.Brewfile からインストール
-brew bundle dump --global -f  # 現在の状態を Brewfile に書き出す
-```
 
 ## 新しい dotfile を追加するとき
 

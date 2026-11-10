@@ -23,7 +23,6 @@ link() {
 
 link zsh/.zshrc              "$HOME/.zshrc"
 link vim/.vimrc              "$HOME/.vimrc"
-link brew/Brewfile           "$HOME/.Brewfile"
 link vscode/settings.json    "$VSCODE/settings.json"
 link vscode/keybindings.json "$VSCODE/keybindings.json"
 link vscode/snippets         "$VSCODE/snippets"
