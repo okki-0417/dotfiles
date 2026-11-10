@@ -6,8 +6,8 @@ my dotfiles (macOS)
 
 | リポジトリ内 | リンク先 |
 | --- | --- |
-| `zsh/zshrc` | `~/.zshrc` |
-| `vim/vimrc` | `~/.vimrc` |
+| `zsh/.zshrc` | `~/.zshrc` |
+| `vim/.vimrc` | `~/.vimrc` |
 | `brew/Brewfile` | `~/.Brewfile` |
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` |
 | `vscode/keybindings.json` | `~/Library/Application Support/Code/User/keybindings.json` |
@@ -34,6 +34,6 @@ brew bundle dump --global -f  # 現在の状態を Brewfile に書き出す
 
 ## 新しい dotfile を追加するとき
 
-1. ファイルをリポジトリに移動する（例: `mv ~/.gitconfig git/gitconfig`）
-2. `install.sh` の末尾に `link git/gitconfig "$HOME/.gitconfig"` を追加
+1. ファイルをリポジトリに移動する（例: `mv ~/.gitconfig git/.gitconfig`）
+2. `install.sh` の末尾に `link git/.gitconfig "$HOME/.gitconfig"` を追加
 3. `./install.sh` を実行
