@@ -1,0 +1,14 @@
+{
+  "name": "my-snippets",
+  "description": "VSCode のスニペット (dotfiles/vscode/snippets) を Neovim のファイルタイプに対応付ける",
+  "contributes": {
+    "snippets": [
+      { "language": ["typescript", "typescriptreact"], "path": "../../vscode/snippets/typescript.json" },
+      { "language": "typescriptreact", "path": "../../vscode/snippets/typescriptreact.json" },
+      { "language": "ruby", "path": "../../vscode/snippets/ruby.json" },
+      { "language": "eruby", "path": "../../vscode/snippets/erb.json" },
+      { "language": ["sh", "zsh", "bash"], "path": "../../vscode/snippets/shellscript.json" },
+      { "language": "php", "path": "../../vscode/snippets/php.json" }
+    ]
+  }
+}
