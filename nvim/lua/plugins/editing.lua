@@ -52,13 +52,13 @@ return {
     end,
   },
 
-  -- Emmet の「省略記法で囲む」（VSCode: alt+d → emmet.action.wrapWithAbbreviation）
+  -- Emmet の「省略記法で囲む」（VSCode: alt+d → emmet.action.wrapWithAbbreviation）。Option+d
   -- 展開は補完候補に emmet_language_server から出てくるので Tab で確定するだけ
   {
     "olrtg/nvim-emmet",
-    keys = {
-      { "<A-d>", function() require("nvim-emmet").wrap_with_abbreviation() end, mode = { "n", "x" }, desc = "Emmet で囲む" },
-    },
+    keys = vim.tbl_map(function(lhs)
+      return { lhs, function() require("nvim-emmet").wrap_with_abbreviation() end, mode = { "n", "x" }, desc = "Emmet で囲む" }
+    end, require("config.option_key").lhs("d")),
   },
 
   -- 画面内の任意の場所へジャンプ: s + 2文字 → 表示されたラベルを押す

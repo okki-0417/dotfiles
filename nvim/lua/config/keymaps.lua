@@ -51,17 +51,18 @@ map("n", "<leader>bu", function()
 end, { desc = "未変更のバッファを閉じる" })
 
 -- 行の移動 / 複製（VSCode: alt+j/k → moveLines, shift+alt+j/k → copyLines）
--- ※ iTerm2 は Profiles > Keys で Option キーを「Esc+」にしておく必要がある
-map("n", "<A-j>", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "行を下へ移動" })
-map("n", "<A-k>", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "行を上へ移動" })
-map("i", "<A-j>", "<Esc><cmd>move .+1<cr>==gi", { desc = "行を下へ移動" })
-map("i", "<A-k>", "<Esc><cmd>move .-2<cr>==gi", { desc = "行を上へ移動" })
-map("x", "<A-j>", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "選択行を下へ移動" })
-map("x", "<A-k>", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "選択行を上へ移動" })
-map("n", "<A-J>", "<cmd>copy .<cr>", { desc = "行を下に複製" })
-map("n", "<A-K>", "<cmd>copy .-1<cr>", { desc = "行を上に複製" })
-map("x", "<A-J>", ":copy '><cr>gv", { desc = "選択行を下に複製" })
-map("x", "<A-K>", ":copy '<-1<cr>gv", { desc = "選択行を上に複製" })
+-- Option キーの扱いは lua/config/option_key.lua を参照（iTerm2 の設定変更は不要）
+local option = require("config.option_key")
+option.map("n", "j", "<cmd>execute 'move .+' . v:count1<cr>==", { desc = "行を下へ移動" })
+option.map("n", "k", "<cmd>execute 'move .-' . (v:count1 + 1)<cr>==", { desc = "行を上へ移動" })
+option.map("i", "j", "<Esc><cmd>move .+1<cr>==gi", { desc = "行を下へ移動" })
+option.map("i", "k", "<Esc><cmd>move .-2<cr>==gi", { desc = "行を上へ移動" })
+option.map("x", "j", ":<C-u>execute \"'<,'>move '>+\" . v:count1<cr>gv=gv", { desc = "選択行を下へ移動" })
+option.map("x", "k", ":<C-u>execute \"'<,'>move '<-\" . (v:count1 + 1)<cr>gv=gv", { desc = "選択行を上へ移動" })
+option.map("n", "J", "<cmd>copy .<cr>", { desc = "行を下に複製" })
+option.map("n", "K", "<cmd>copy .-1<cr>", { desc = "行を上に複製" })
+option.map("x", "J", ":copy '><cr>gv", { desc = "選択行を下に複製" })
+option.map("x", "K", ":copy '<-1<cr>gv", { desc = "選択行を上に複製" })
 
 -- インデント（VSCode: ctrl+] / ctrl+[）
 -- Ctrl+[ は Esc そのものなので割り当てられない。Vim 標準の >> / << / ビジュアルの > < を使う。

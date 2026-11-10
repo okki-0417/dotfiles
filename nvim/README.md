@@ -10,6 +10,7 @@ nvim/
 ├── lua/config/
 │   ├── options.lua          オプション（settings.json 相当）
 │   ├── keymaps.lua          プラグインに依存しないキーマップ（keybindings.json 相当）
+│   ├── option_key.lua       macOS の Option キー → 入力される文字の対応表
 │   ├── autocmds.lua         自動保存 / 保存時の行末空白削除 など
 │   └── lazy.lua             プラグインマネージャ lazy.nvim
 ├── lua/plugins/             プラグインの設定。各プラグインのキーマップもここの `keys` に書く
@@ -37,10 +38,9 @@ nvim/
 ## 初回セットアップ
 
 1. `./install.sh` → `nvim` を起動するとプラグインと言語サーバーが自動で入る（`:Lazy` / `:Mason` で確認）
-2. **iTerm2**: Settings > Profiles > Keys > General で **Left Option key を `Esc+`** にする（Alt+j/k の行移動などに必要）
-3. **iTerm2**: Profiles > Text のフォントを Nerd Font にする（例: `brew install --cask font-hack-nerd-font`）。アイコン表示に必要
-4. `:Copilot auth` で GitHub Copilot にログイン
-5. 操作に慣れるには `:Tutor`（Vim 標準のチュートリアル、30分ほど）
+2. **アイコン用フォント**: `brew install --cask font-symbols-only-nerd-font` → iTerm2 の Profiles > Text で「Use a different font for non-ASCII text」にチェックし、Non-ASCII Font を `Symbols Nerd Font Mono` にする
+3. `:Copilot auth` で GitHub Copilot にログイン
+4. 操作に慣れるには `:Tutor`（Vim 標準のチュートリアル、30分ほど）
 
 ## Vim の基本（まずはこれだけ）
 
@@ -61,6 +61,7 @@ nvim/
 ## VSCode からの対応表
 
 `cmd` キーはターミナル上の Neovim に届かないので、`Space`（`<leader>`）始まりに置き換えている。
+`Option` キーは iTerm2 の設定を変えずに使えるよう、Option+キーで入力される文字（`∆` など）に割り当てている（`lua/config/option_key.lua`）。
 
 ### 自分で設定していた keybindings.json
 
@@ -74,8 +75,8 @@ nvim/
 | `ctrl+u` / `ctrl+d`（ページ移動） | `Ctrl+u` / `Ctrl+d` | Vim 標準と同じ |
 | `ctrl+/`（コメント） | `Ctrl+/` または `gcc`（ビジュアルで `gc`） | |
 | `ctrl+]` / `ctrl+[`（インデント） | `>>` / `<<`（ビジュアルで `>` `<`） | `Ctrl+[` は Esc と同じなので割り当て不可 |
-| `alt+j/k`（行の移動） | `Alt+j/k` | 要 iTerm2 の Option = Esc+ |
-| `shift+alt+j/k`（行の複製） | `Alt+Shift+j/k` | |
+| `alt+j/k`（行の移動） | `Option+j/k` | |
+| `shift+alt+j/k`（行の複製） | `Option+Shift+j/k` | |
 | `ctrl+enter`（定義へ） | `gd`（`Ctrl+Enter` も設定済み※） | |
 | `ctrl+shift+enter`（戻る） | `Ctrl+o` | |
 | `ctrl+m` / `ctrl+,`（前 / 次のタブ） | `Shift+h` / `Shift+l` | `Ctrl+m` は端末では Enter と同じ |
@@ -83,9 +84,9 @@ nvim/
 | `ctrl+c`（相対パスをコピー） | `Ctrl+c` / `Space c p` | 絶対パス: `Space c P` |
 | `shift+cmd+j`（次の一致を選択に追加） | `Space m n` → 続けて `n` | `q` でスキップ、`Esc` で解除 |
 | `alt+cmd+j` / `shift+cmd+k`（カーソル追加） | `Space m j` / `Space m k` | |
-| `tab`（Copilot / 補完 / スニペット確定） | `Tab` | Copilot → 補完候補 → スニペットの次の欄 の順 |
+| `tab`（Copilot / 補完 / スニペット確定） | `Tab` | Copilot → 補完候補 → スニペットの次の欄 の順。Copilot の単語単位確定は `Option+l`、提案の切り替えは `Option+]` / `Option+[` |
 | `ctrl+j/k`（候補の上下） | `Ctrl+j/k` | 補完・ファイル検索の一覧で共通 |
-| `alt+d`（Emmet で囲む） | `Alt+d` | 展開は補完候補から `Tab` |
+| `alt+d`（Emmet で囲む） | `Option+d` | 展開は補完候補から `Tab` |
 | `shift+cmd+s`（RuboCop 自動修正） | `Space c f` | 手動保存時にも自動で走る |
 | `cmd+n` / `cmd+d`（新規ファイル / フォルダ） | エクスプローラで `a`（末尾 `/` でフォルダ） | |
 | エクスプローラで `space`（プレビュー） / `ctrl+h`（閉じる） | `P` / `h` | Space は `<leader>` として使うため |
