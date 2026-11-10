@@ -4,16 +4,16 @@
 		"body": [ "# frozen_string_literal: true",
 							"",
 							"class $1 < ApplicationRecord",
-							"end",
-		],
+							"end"
+		]
 	},
 	"Declare Controller Class": {
 		"prefix":	"controller",
 		"body": [ "# frozen_string_literal: true",
 							"",
 							"class $1 < ApplicationController",
-							"end",
-		],
+							"end"
+		]
 	},
 	"let current_user": {
 		"prefix": "lc",
@@ -32,8 +32,8 @@
 							"\t\tcontext \"\" do",
 							"\t\tend",
 							"\tend",
-							"end",
-		],
+							"end"
+		]
 	},
 	"Prepare RSpec - Request Spec": {
 		"prefix":	"reqspec",
@@ -48,8 +48,8 @@
 							"\t\tcontext \"\" do",
 							"\t\tend",
 							"\tend",
-							"end",
-		],
+							"end"
+		]
 	},
 	"Prepare RSpec - Model Spec": {
 		"prefix":	"modelspec",
@@ -64,8 +64,8 @@
 							"\t\tcontext \"\" do",
 							"\t\tend",
 							"\tend",
-							"end",
-		],
+							"end"
+		]
 	},
 	"Prepare Describe": {
 		"prefix": "describe",
@@ -75,90 +75,90 @@
 							"\tcontext \"$3\" do",
 							"\tend",
               "end"
-    ],
+    ]
 	},
 	"Prepare Context": {
 		"prefix": "context",
     "body": [ "context \"$2\" do",
-							"end",
-    ],
+							"end"
+    ]
 	},
 	"Prepare It": {
 		"prefix": "it",
     "body": [ "it \"$2\" do",
-							"end",
-    ],
+							"end"
+    ]
 	},
 	"Prepare Expect": {
 		"prefix": "expect",
-    "body": "expect($1).to $2",
+    "body": "expect($1).to $2"
 	},
 	"Prepare It_behaves_like": {
 		"prefix": "it_behaves_like",
-    "body": "it_behaves_like :$1",
+    "body": "it_behaves_like :$1"
 	},
 	"Prepare Subject": {
 		"prefix": "subject",
-    "body": "subject { $1 }",
+    "body": "subject { $1 }"
 	},
 	"Prepare Response Example": {
 		"prefix": "response",
-    "body": "expect(response).to have_http_status($1)",
+    "body": "expect(response).to have_http_status($1)"
 	},
 	"Prepare Let": {
 		"prefix": "let",
-    "body": "let(:$1) { $2 }",
+    "body": "let(:$1) { $2 }"
 	},
 	"let(:current_user...": {
 		"prefix": "letc",
-		"body": "let(:current_user) { create(:user) }",
+		"body": "let(:current_user) { create(:user) }"
 	},
 	"Prepare Before": {
 		"prefix": "before",
-    "body": "before { $1 }",
+    "body": "before { $1 }"
 	},
 	"Prepare Stab": {
 		"prefix": "allow",
-    "body": "allow($1).to receive(:$2).and_return($3)",
+    "body": "allow($1).to receive(:$2).and_return($3)"
 	},
 	"Prepare StabInstance": {
 		"prefix": "allow_any_instance_of",
-    "body": "allow_any_instance_of($1).to receive(:$2).and_return($3)",
+    "body": "allow_any_instance_of($1).to receive(:$2).and_return($3)"
 	},
 	"Prepare Include Context": {
 		"prefix": "include_context",
-    "body": "include_context \"$1\"",
+    "body": "include_context \"$1\""
 	},
 	"Prepare FactoryBot": {
 		"prefix": "FactoryBot",
-    "body": "FactoryBot.$1(:$2)",
+    "body": "FactoryBot.$1(:$2)"
 	},
 	"Prepare FactoryBot.create": {
 		"prefix": "create",
-    "body": "create(:$1)",
+    "body": "create(:$1)"
 	},
 
 	"Prepare Binding Pry": {
 		"prefix": "binding.pry",
-    "body": "binding.pry",
+    "body": "binding.pry"
 	},
 
 	"Prepare params": {
 		"prefix": "params",
-    "body": "params[:$1]",
+    "body": "params[:$1]"
 	},
 
 	"Prepare Resources": {
 		"prefix": "resources",
-    "body": "resources :$1",
+    "body": "resources :$1"
 	},
 	"Prepare Only": {
 		"prefix": "only",
-    "body": "only: %i[$1]",
+    "body": "only: %i[$1]"
 	},
 	"frozen_string_literal": {
 		"prefix": "frozen_string_literal",
-    "body": "# frozen_string_literal: true",
+    "body": "# frozen_string_literal: true"
 	},
 	"has_many": {
 		"prefix": "has_many",

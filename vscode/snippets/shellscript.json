@@ -2,7 +2,7 @@
 	"Alias": {
 		"prefix": "alias",
 		"body": [
-			"alias $1=\"$2\"",
-		],
+			"alias $1=\"$2\""
+		]
 	}
 }

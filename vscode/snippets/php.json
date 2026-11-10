@@ -2,7 +2,7 @@
 	"php tag": {
 		"prefix": "php",
 		"body": [
-			"<?php $1; ?>",
-		],
+			"<?php $1; ?>"
+		]
 	}
 }
