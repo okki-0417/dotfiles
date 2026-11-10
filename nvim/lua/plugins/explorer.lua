@@ -36,7 +36,7 @@ return {
       filesystem = {
         follow_current_file = { enabled = true },  -- 開いているファイルをツリーで追う
         use_libuv_file_watcher = true,
-        hijack_netrw_behavior = "open_current",
+        hijack_netrw_behavior = "open_default", -- `nvim .` でもサイドバーとして開く（Space e で閉じられる）
         filtered_items = {
           visible = true,           -- 隠しファイルも薄く表示（search.useIgnoreFiles: false に合わせる）
           hide_dotfiles = false,
