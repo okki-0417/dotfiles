@@ -13,6 +13,20 @@ my dotfiles (macOS)
 | `vscode/keybindings.json` | `~/Library/Application Support/Code/User/keybindings.json` |
 | `vscode/snippets/` | `~/Library/Application Support/Code/User/snippets` |
 
+### zsh
+
+`zsh/.zshrc` は読み込み順を決めるだけで、中身は `zsh/rc/` に役割ごとに分かれています。
+
+| ファイル | 内容 |
+| --- | --- |
+| `path.zsh` | PATH |
+| `tools.zsh` | nodenv / rbenv / direnv などの初期化 |
+| `prompt.zsh` | プロンプト |
+| `completion.zsh` | 補完 |
+| `aliases.zsh` | エイリアス |
+| `functions.zsh` | 関数 |
+| `plugins.zsh` | fzf / zsh-autosuggestions / zsh-syntax-highlighting など |
+
 ## セットアップ
 
 ```sh
