@@ -7,6 +7,7 @@ my dotfiles (macOS)
 | リポジトリ内 | リンク先 |
 | --- | --- |
 | `zsh/.zshrc` | `~/.zshrc` |
+| `nvim/` | `~/.config/nvim` |
 | `vim/.vimrc` | `~/.vimrc` |
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` |
 | `vscode/keybindings.json` | `~/Library/Application Support/Code/User/keybindings.json` |
@@ -25,6 +26,12 @@ my dotfiles (macOS)
 | `aliases.zsh` | エイリアス |
 | `functions.zsh` | 関数 |
 | `plugins.zsh` | fzf / zsh-autosuggestions / zsh-syntax-highlighting など |
+
+### Neovim
+
+メインのエディタ。VSCode の設定・ショートカットを移植してある。
+構成・操作方法・VSCode との対応表は [nvim/README.md](nvim/README.md)。
+`vim/.vimrc` はプラグインなしの素の Vim 用の最低限の設定。
 
 ## セットアップ
 

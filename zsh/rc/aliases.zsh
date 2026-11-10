@@ -15,10 +15,13 @@ alias h="history 100"
 alias hg="history 100 | grep"
 
 # --- zsh 設定 ---------------------------------------------------------------
-alias editzsh="code ~/.zshrc"
+alias editzsh="nvim ~/.zshrc"
 alias z="source ~/.zshrc"
 
 # --- エディタ / AI ----------------------------------------------------------
+alias v="nvim"
+alias v.="nvim ."
+alias vim="nvim"
 alias code.="code ."
 alias codei="code-insiders"
 alias cl="claude"
