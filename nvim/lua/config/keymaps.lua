@@ -78,6 +78,12 @@ for _, key in ipairs({ "<C-/>", "<C-_>" }) do
   map("i", key, "<Esc>gcca", { remap = true, desc = "コメントをトグル" })
 end
 
+-- 構文単位で選択範囲を広げる / 狭める（VSCode: Expand / Shrink Selection）
+-- Neovim 0.12 標準のビジュアルモード an（親ノードへ広げる） / in（子ノードへ狭める）を使う
+map("n", "<C-space>", "van", { remap = true, desc = "構文単位で選択を開始" })
+map("x", "<C-space>", "an", { remap = true, desc = "選択を構文単位で広げる" })
+map("x", "<BS>", "in", { remap = true, desc = "選択を構文単位で狭める" })
+
 -- 戻る（VSCode: ctrl+shift+enter → navigateBack）。Vim 標準は Ctrl+o（戻る） / Ctrl+i（進む）
 map("n", "<C-S-CR>", "<C-o>", { desc = "前の位置へ戻る" })
 

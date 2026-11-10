@@ -37,10 +37,11 @@ nvim/
 
 ## 初回セットアップ
 
-1. `./install.sh` → `nvim` を起動するとプラグインと言語サーバーが自動で入る（`:Lazy` / `:Mason` で確認）
-2. **アイコン用フォント**: `brew install --cask font-symbols-only-nerd-font` → iTerm2 の Profiles > Text で「Use a different font for non-ASCII text」にチェックし、Non-ASCII Font を `Symbols Nerd Font Mono` にする
-3. `:Copilot auth` で GitHub Copilot にログイン
-4. 操作に慣れるには `:Tutor`（Vim 標準のチュートリアル、30分ほど）
+1. `brew install neovim tree-sitter-cli`（Neovim 0.12 以上。tree-sitter-cli は構文ハイライトのパーサーのビルドに必要）
+2. `./install.sh` → `nvim` を起動するとプラグインと言語サーバーが自動で入る（`:Lazy` / `:Mason` で確認）
+3. **アイコン用フォント**: `brew install --cask font-symbols-only-nerd-font` → iTerm2 の Profiles > Text で「Use a different font for non-ASCII text」にチェックし、Non-ASCII Font を `Symbols Nerd Font Mono` にする
+4. `:Copilot auth` で GitHub Copilot にログイン
+5. 操作に慣れるには `:Tutor`（Vim 標準のチュートリアル、30分ほど）
 
 ## Vim の基本（まずはこれだけ）
 
@@ -115,7 +116,7 @@ nvim/
 | Git blame / ファイル履歴 | `Space g l` / `Space g h` |
 | ``ctrl+` `` ターミナル | `Ctrl+\`（中で `Esc Esc` でノーマルモード） |
 | 分割 | `Space \|`（縦） / `Space -`（横） |
-| Expand Selection | `Ctrl+Space` を繰り返す |
+| Expand / Shrink Selection | `Ctrl+Space` を繰り返す / `Backspace`（ビジュアルモードで `an` / `in` も同じ） |
 | Sticky Scroll | 自動（treesitter-context） |
 
 ### settings.json で再現しているもの

@@ -20,7 +20,15 @@ return {
   },
 
   -- テキストオブジェクトの拡張（i( / a" / iq（引用符） / ib（括弧）など）
-  { "echasnovski/mini.ai", event = "VeryLazy", opts = { n_lines = 500 } },
+  {
+    "echasnovski/mini.ai",
+    event = "VeryLazy",
+    opts = {
+      n_lines = 500,
+      -- an / in は Neovim 0.12 標準の「構文単位で選択」に使うので、mini.ai の「次の〜」は割り当てない
+      mappings = { around_next = "", inside_next = "" },
+    },
+  },
 
   -- マルチカーソル
   -- VSCode: shift+cmd+j（次の一致を選択に追加） / alt+cmd+j, shift+cmd+k（カーソルを上下に追加）
