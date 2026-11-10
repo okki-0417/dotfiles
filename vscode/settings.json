@@ -1,10 +1,10 @@
 {
   "diffEditor.ignoreTrimWhitespace": false,
-
   "explorer.fileNesting.enabled": true,
   "explorer.fileNesting.patterns": {
-    "*.ts": "${capture}.test.ts",
-    "*.tsx": "${capture}.test.tsx",
+    // "*.ts": "${capture}.test.ts",
+    // "*.tsx": "${capture}.test.tsx",
+    // "*.vue": "${capture}.test.ts",
   },
   "editor.wordWrap": "off",
   "editor.tabSize": 2,
@@ -13,7 +13,6 @@
   "editor.scrollbar.vertical": "hidden",
   "editor.scrollbar.horizontal": "hidden",
   "editor.smoothScrolling": false,
-
   "editor.tokenColorCustomizations": {
     "comments": "#58b08b",
     "textMateRules": [
@@ -44,31 +43,23 @@
     ],
   },
   "editor.semanticTokenColorCustomizations": {},
-
   "files.autoSave": "afterDelay",
   "files.associations": {
     "*.css": "tailwindcss",
   },
   "files.insertFinalNewline": true,
   "files.trimTrailingWhitespace": true,
-
   "git.autofetch": true,
   "git.confirmSync": false,
   "git.openRepositoryInParentFolders": "never",
   "github.copilot.nextEditSuggestions.enabled": true,
-
   "rubyLsp.rubyExecutablePath": "/Users/mumumu/.rbenv/shims/ruby",
-  "erb.erb-lint.executePath": "/Users/mumumu/.rbenv/shims/erb_lint",
   "rubocop.autocorrect": false,
-
   "security.workspace.trust.untrustedFiles": "open",
   "search.useIgnoreFiles": false,
-
   "terminal.integrated.gpuAcceleration": "off",
-
   "js/ts.updateImportsOnFileMove.enabled": "always",
   "js/ts.preferences.importModuleSpecifier": "non-relative",
-
   "[typescriptreact]": {
     "editor.defaultFormatter": "oxc.oxc-vscode",
     "editor.formatOnSave": true,
@@ -91,22 +82,20 @@
     "editor.formatOnSave": true,
   },
   "[jsonc]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.defaultFormatter": "vscode.json-language-features",
     "editor.formatOnSave": true,
   },
   "[ruby]": {
     "editor.defaultFormatter": "rubocop.vscode-rubocop",
     "editor.formatOnSave": true,
   },
-  "[erb]": {
-    "editor.formatOnSave": false,
-    "editor.defaultFormatter": "manuelpuyol.erb-linter",
+  "[html]": {
+    "editor.defaultFormatter": "vscode.html-language-features",
+    "editor.formatOnSave": true,
   },
-
   "workbench.iconTheme": "material-icon-theme",
   "workbench.activityBar.location": "hidden",
   "workbench.layoutControl.enabled": false,
-
   "workbench.colorCustomizations": {
     "editor.lineHighlightBackground": "#0000",
     "editor.lineHighlightBorder": "#0000",
@@ -116,22 +105,18 @@
     "editorGutter.modifiedBackground": "#00f2ff",
     "editorGutter.addedBackground": "#00FF7F",
     "editorGutter.deletedBackground": "#FF6347",
-
     "list.activeSelectionBackground": "#fbb1f370",
     "list.focusOutline": "#fbb1f3",
     "list.inactiveSelectionBackground": "#fbb1f370",
     "list.hoverBackground": "#fbb1f370",
-
     "statusBar.foreground": "#ccc",
     "statusBar.background": "#212330",
-
     "tab.activeBackground": "#fbb1f350",
     "tab.inactiveBackground": "#2d2f43",
     "tab.activeForeground": "#FFFFFF",
     "tab.inactiveForeground": "#CCCCCC",
     "tab.border": "#cccccc50",
   },
-
   "window.commandCenter": false,
   "github.copilot.enable": {
     "*": true,
