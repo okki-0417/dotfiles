@@ -13,7 +13,7 @@ my dotfiles (macOS)
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` |
 | `vscode/keybindings.json` | `~/Library/Application Support/Code/User/keybindings.json` |
 | `vscode/snippets/` | `~/Library/Application Support/Code/User/snippets` |
-| `iterm2/` | iTerm2 の設定フォルダとして指定（リンクではない。下記参照） |
+| `iterm2/profile.json` | `~/Library/Application Support/iTerm2/DynamicProfiles/dotfiles.json` |
 
 ### zsh
 
@@ -37,13 +37,14 @@ my dotfiles (macOS)
 
 ### iTerm2
 
-`iterm2/com.googlecode.iterm2.plist` に設定を保存している。iTerm2 側で次のように指定する。
+| ファイル | 内容 |
+| --- | --- |
+| `iterm2/profile.json` | プロファイル（フォント・配色・カーソル・キー割り当てなど）。全項目を書き出してあるので、ここを直接編集する |
+| `iterm2/defaults.sh` | プロファイル以外の全体設定（スクロールバー非表示など）を `defaults write` で適用するスクリプト |
 
-1. Settings > General > Settings を開く
-2. 「Load settings from a custom folder or URL」にチェックし、`<このリポジトリ>/iterm2` を選ぶ
-3. 「Save changes」を `Automatically` にする
-
-以降、iTerm2 の設定を変えるとこのファイルが書き換わるので、必要に応じてコミットする。
+- `profile.json` は iTerm2 の Dynamic Profile として読み込まれ、保存すると即座に反映される（GUI で変更しても保存されないので、変更は JSON で行う）
+- 色は `Red / Green / Blue Component`（0〜1）で書く。`(Dark)` / `(Light)` 付きはダーク / ライトモード別の色
+- 初回は `./iterm2/defaults.sh` を実行して iTerm2 を再起動する（既定のプロファイルも `Dotfiles` になる）
 
 ## セットアップ
 
