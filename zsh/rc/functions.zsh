@@ -94,7 +94,7 @@ function appq() {
   if [[ $# -gt 0 ]]; then
     apps=("$@")
   else
-    local exclude=("iTerm2" "Electron" "Google Chrome" "Code")
+    local exclude=("Terminal" "iTerm2" "Electron" "Google Chrome" "Code")
     echo "\"$exclude\"以外を終了します。"
     apps=("${(@f)$(lsapp)}")
     apps=("${(@)apps:|exclude}")  # 除外リストを取り除く
