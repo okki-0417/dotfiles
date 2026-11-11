@@ -1,0 +1,41 @@
+{
+  "name": "Dotfiles",
+  "font": { "name": "Monaco", "size": 13 },
+  "colors": {
+    "TextColor": "#bbbbbb",
+    "TextBoldColor": "#ffffff",
+    "BackgroundColor": "#000000",
+    "CursorColor": "#bbbbbb",
+    "SelectionColor": "#264f78",
+    "ANSIBlackColor": "#000000",
+    "ANSIRedColor": "#bb0000",
+    "ANSIGreenColor": "#00bb00",
+    "ANSIYellowColor": "#bbbb00",
+    "ANSIBlueColor": "#0000bb",
+    "ANSIMagentaColor": "#bb00bb",
+    "ANSICyanColor": "#00bbbb",
+    "ANSIWhiteColor": "#bbbbbb",
+    "ANSIBrightBlackColor": "#555555",
+    "ANSIBrightRedColor": "#ff5555",
+    "ANSIBrightGreenColor": "#55ff55",
+    "ANSIBrightYellowColor": "#ffff55",
+    "ANSIBrightBlueColor": "#5555ff",
+    "ANSIBrightMagentaColor": "#ff55ff",
+    "ANSIBrightCyanColor": "#55ffff",
+    "ANSIBrightWhiteColor": "#ffffff"
+  },
+  "settings": {
+    "FontAntialias": true,
+    "UseBrightBold": true,
+    "CursorType": 0,
+    "CursorBlink": false,
+    "columnCount": 80,
+    "rowCount": 25,
+    "ShouldLimitScrollback": 0,
+    "shellExitAction": 0,
+    "Bell": false,
+    "VisualBell": false,
+    "useOptionAsMetaKey": false,
+    "TerminalType": "xterm-256color"
+  }
+}

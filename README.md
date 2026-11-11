@@ -35,7 +35,25 @@ my dotfiles (macOS)
 構成・操作方法・VSCode との対応表は [nvim/README.md](nvim/README.md)。
 `vim/.vimrc` はプラグインなしの素の Vim 用の最低限の設定。
 
+### Terminal.app
+
+メインのターミナル。
+
+| ファイル | 内容 |
+| --- | --- |
+| `terminal/profile.json` | プロファイル（フォント・配色・カーソルなど）。ここを編集する |
+| `terminal/build.js` | `profile.json` から `.terminal` ファイルを生成するスクリプト（色・フォントは NSColor / NSFont のバイナリになるため） |
+| `terminal/apply.sh` | `.terminal` を生成して Terminal.app に読み込ませ、既定・起動時のプロファイルにする |
+
+- `profile.json` を編集したら `./terminal/apply.sh` を実行する（Terminal.app の起動中・中から実行してOK。同名のプロファイルは上書きされ、ウィンドウが1つ開く）
+- 色は `#rrggbb`、キー名は Terminal.app の設定のキー名そのまま（`settings` は真偽値・数値・文字列をそのまま書き込む）
+- GUI で変えた設定は `profile.json` に戻らないので、変更は JSON で行う
+- 初回は AppleScript から Terminal.app を操作する許可を求められる
+
 ### iTerm2
+
+以前のメインのターミナル。戻せるように設定を残してある。
+
 
 | ファイル | 内容 |
 | --- | --- |
