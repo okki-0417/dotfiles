@@ -44,7 +44,7 @@ my dotfiles (macOS)
 
 - `profile.json` は iTerm2 の Dynamic Profile として読み込まれ、保存すると即座に反映される（GUI で変更しても保存されないので、変更は JSON で行う）
 - 色は `Red / Green / Blue Component`（0〜1）で書く。`(Dark)` / `(Light)` 付きはダーク / ライトモード別の色
-- 初回は `./iterm2/defaults.sh` を実行して iTerm2 を再起動する（既定のプロファイルも `Dotfiles` になる）
+- 初回は iTerm2 を終了した状態で（別のターミナルから）`./iterm2/defaults.sh` を実行し、iTerm2 を起動する（既定のプロファイルも `Dotfiles` になる）。起動中に実行すると iTerm2 の終了時に上書きされるため、スクリプトは起動中なら中断する
 
 ## セットアップ
 

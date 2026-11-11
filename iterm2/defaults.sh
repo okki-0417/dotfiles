@@ -4,6 +4,12 @@
 # 反映には iTerm2 の再起動が必要。
 set -eu
 
+# iTerm2 は終了時に設定を書き戻すため、起動中に書き込むと上書きされて消える
+if ps -axo comm= | grep -q '/iTerm\.app/Contents/MacOS/iTerm2$'; then
+  echo "iTerm2 が起動中です。iTerm2 を終了してから（別のターミナルで）実行してください。" >&2
+  exit 1
+fi
+
 d() { defaults write com.googlecode.iterm2 "$@"; }
 
 # --- 見た目 -------------------------------------------------------------------
