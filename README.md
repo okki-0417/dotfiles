@@ -12,6 +12,7 @@ my dotfiles (macOS)
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` |
 | `vscode/keybindings.json` | `~/Library/Application Support/Code/User/keybindings.json` |
 | `vscode/snippets/` | `~/Library/Application Support/Code/User/snippets` |
+| `iterm2/` | iTerm2 の設定フォルダとして指定（リンクではない。下記参照） |
 
 ### zsh
 
@@ -25,13 +26,23 @@ my dotfiles (macOS)
 | `completion.zsh` | 補完 |
 | `aliases.zsh` | エイリアス |
 | `functions.zsh` | 関数 |
-| `plugins.zsh` | fzf / zsh-autosuggestions / zsh-syntax-highlighting など |
+| `plugins.zsh` | fzf / zsh-autosuggestions / zsh-syntax-highlighting など（`brew install fzf zsh-autosuggestions zsh-syntax-highlighting`） |
 
 ### Neovim
 
 メインのエディタ。VSCode の設定・ショートカットを移植してある。
 構成・操作方法・VSCode との対応表は [nvim/README.md](nvim/README.md)。
 `vim/.vimrc` はプラグインなしの素の Vim 用の最低限の設定。
+
+### iTerm2
+
+`iterm2/com.googlecode.iterm2.plist` に設定を保存している。iTerm2 側で次のように指定する。
+
+1. Settings > General > Settings を開く
+2. 「Load settings from a custom folder or URL」にチェックし、`<このリポジトリ>/iterm2` を選ぶ
+3. 「Save changes」を `Automatically` にする
+
+以降、iTerm2 の設定を変えるとこのファイルが書き換わるので、必要に応じてコミットする。
 
 ## セットアップ
 
