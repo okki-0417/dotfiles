@@ -49,6 +49,7 @@ my dotfiles (macOS)
 - 色は `#rrggbb`、キー名は Terminal.app の設定のキー名そのまま（`settings` は真偽値・数値・文字列をそのまま書き込む）
 - GUI で変えた設定は `profile.json` に戻らないので、変更は JSON で行う
 - 初回は AppleScript から Terminal.app を操作する許可を求められる
+- フォントは Nerd Font 版の Meslo（`brew install --cask font-meslo-lg-nerd-font`）。Terminal.app には iTerm2 のような「非ASCII文字用フォント」の設定がないので、アイコン入りのフォントをメインに使う。`font.name` は PostScript 名（`MesloLGSNFM-Regular` = Nerd Font Mono 版）
 
 ### iTerm2
 

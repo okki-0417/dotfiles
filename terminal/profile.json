@@ -1,6 +1,6 @@
 {
   "name": "Dotfiles",
-  "font": { "name": "Monaco", "size": 13 },
+  "font": { "name": "MesloLGSNFM-Regular", "size": 13 },
   "colors": {
     "TextColor": "#bbbbbb",
     "TextBoldColor": "#ffffff",

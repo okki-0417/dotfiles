@@ -39,7 +39,9 @@ nvim/
 
 1. `brew install neovim tree-sitter-cli`（Neovim 0.12 以上。tree-sitter-cli は構文ハイライトのパーサーのビルドに必要）
 2. `./install.sh` → `nvim` を起動するとプラグインと言語サーバーが自動で入る（`:Lazy` / `:Mason` で確認）
-3. **アイコン用フォント**: `brew install --cask font-symbols-only-nerd-font` → iTerm2 の Profiles > Text で「Use a different font for non-ASCII text」にチェックし、Non-ASCII Font を `Symbols Nerd Font Mono` にする
+3. **アイコン用フォント**:
+   - Terminal.app: `brew install --cask font-meslo-lg-nerd-font` → `../terminal/apply.sh`（プロファイルのフォントが Meslo の Nerd Font 版になっている）
+   - iTerm2: `brew install --cask font-symbols-only-nerd-font` → Profiles > Text で「Use a different font for non-ASCII text」にチェックし、Non-ASCII Font を `Symbols Nerd Font Mono` にする（`iterm2/profile.json` には設定済み）
 4. `:Copilot auth` で GitHub Copilot にログイン
 5. 操作に慣れるには `:Tutor`（Vim 標準のチュートリアル、30分ほど）
 
