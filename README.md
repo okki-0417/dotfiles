@@ -7,6 +7,7 @@ my dotfiles (macOS)
 | リポジトリ内 | リンク先 |
 | --- | --- |
 | `zsh/.zshrc` | `~/.zshrc` |
+| `git/.gitconfig` | `~/.gitconfig`（名前・メールは `~/.gitconfig.local` に書く） |
 | `nvim/` | `~/.config/nvim` |
 | `vim/.vimrc` | `~/.vimrc` |
 | `vscode/settings.json` | `~/Library/Application Support/Code/User/settings.json` |

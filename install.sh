@@ -22,6 +22,7 @@ link() {
 }
 
 link zsh/.zshrc              "$HOME/.zshrc"
+link git/.gitconfig          "$HOME/.gitconfig"
 link vim/.vimrc              "$HOME/.vimrc"
 link nvim                    "$HOME/.config/nvim"
 link vscode/settings.json    "$VSCODE/settings.json"

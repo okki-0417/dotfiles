@@ -1,0 +1,22 @@
+# ~/.gitconfig -> dotfiles/git/.gitconfig
+# 名前・メールアドレスなどマシン固有の設定は ~/.gitconfig.local に書く（リポジトリには入れない）
+#   [user]
+#       name = ...
+#       email = ...
+
+[include]
+	path = ~/.gitconfig.local
+
+[ghq]
+	root = ~/src
+[init]
+	defaultBranch = main
+[push]
+	autoSetupRemote = true
+[http]
+	postBuffer = 1048576000
+[filter "lfs"]
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
